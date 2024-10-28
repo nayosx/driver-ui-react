@@ -13,7 +13,6 @@ export const useStore = (key, initialValue) => {
 
     useEffect(() => {
         try {
-            // Only stringify the value if it's not undefined
             if (storedValue !== undefined) {
                 window.sessionStorage.setItem(key, JSON.stringify(storedValue));
             } else {
