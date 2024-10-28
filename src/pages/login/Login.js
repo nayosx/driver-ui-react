@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../../assets/images/logo.jpeg';
 import './Login.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import loginSchema from './Login.validate';
 import { useStore } from '../../hooks/Session-Storage.hook';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [data, setData] = useStore('data', null);
 
-    const handleSubmit = (values, {setSubmitting}) => {
-        console.log('Username:', values.username);
-        console.log('Password:', values.password);
+    useEffect(() => {
+        if (data) {
+            setIsLoading(true);
+            navigate('/home');
+        }
+    }, [data, navigate]);
 
-        this.setData(values);
+    const handleSubmit = (values, {setSubmitting}) => {
+        setData(values);
         setSubmitting(false);
     };
 

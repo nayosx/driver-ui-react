@@ -1,21 +1,26 @@
 import { useEffect, useState } from 'react';
 
-export const useStore = (key, initialValues) => {
-    const [storedValue, setStoredValue] = useState( () => {
+export const useStore = (key, initialValue) => {
+    const [storedValue, setStoredValue] = useState(() => {
         try {
             const item = window.sessionStorage.getItem(key);
-            return item ? JSON.parse(item) : initialValues;
+            return item ? JSON.parse(item) : initialValue;
         } catch (error) {
-            console.log(error);
-            return initialValues;
+            console.error('Error reading from sessionStorage:', error);
+            return initialValue;
         }
     });
 
     useEffect(() => {
         try {
-            window.sessionStorage.setItem(key, JSON.stringify(storedValue));
+            // Only stringify the value if it's not undefined
+            if (storedValue !== undefined) {
+                window.sessionStorage.setItem(key, JSON.stringify(storedValue));
+            } else {
+                window.sessionStorage.removeItem(key);
+            }
         } catch (error) {
-            console.log(error);
+            console.error('Error writing to sessionStorage:', error);
         }
     }, [key, storedValue]);
 
