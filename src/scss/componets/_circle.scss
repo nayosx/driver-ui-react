@@ -1,0 +1,60 @@
+@mixin circle-shadow($color: rgba(0, 0, 0, 0.1)) {
+    box-shadow: 0 4px 6px $color;
+}
+
+@mixin circle($size) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+}
+
+$circle-sizes: (
+    'xs': 24px,
+    'sm': 32px,
+    'md': 48px,
+    'lg': 64px,
+    'xl': 96px,
+    'xxl': 128px
+);
+
+@each $name, $size in $circle-sizes {
+    .u-circle-#{$name} {
+        @include circle($size);
+    }
+
+    .u-circle-#{$name}-shadow {
+        @include circle($size);
+        @include circle-shadow;
+    }
+}
+
+.u-circle {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.u-circle-shadow {
+    @extend .u-circle;
+    @include circle-shadow;
+}
+
+.u-circle-ratio {
+    position: relative;
+    padding-bottom: 100%;
+
+    >* {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .u-circle-ratio-shadow {
+        @extend .u-circle-ratio;
+        @include circle-shadow;
+    }
+}

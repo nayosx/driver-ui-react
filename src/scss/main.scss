@@ -1,4 +1,9 @@
-@import './reset';
-@import './form';
-@import './utils';
+@use './reset';
+@use './mixins';
+@use './grid-system';
+@use './form';
+@use './utils';
+@use './colors';
+@use './paragraphs';
 
+@use './componets/components';

@@ -1,0 +1,62 @@
+$grid-columns: 12;
+$grid-gap: 1rem;
+$container-max-width: 1200px;
+
+@mixin make-container {
+  width: 100%;
+  padding-right: $grid-gap;
+  padding-left: $grid-gap;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin make-row {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  gap: $grid-gap;
+}
+
+@mixin make-col($span: 12) {
+  grid-column: span $span;
+}
+
+.container {
+  @include make-container;
+}
+
+.container-fluid {
+  @include make-container;
+}
+
+@media (min-width: $container-max-width) {
+  .container {
+    max-width: $container-max-width;
+  }
+}
+
+.row {
+  @include make-row;
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include make-col($i);
+  }
+}
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+@each $breakpoint, $width in $breakpoints {
+  @media (min-width: $width) {
+    @for $i from 1 through $grid-columns {
+      .col-#{$breakpoint}-#{$i} {
+        @include make-col($i);
+      }
+    }
+  }
+}

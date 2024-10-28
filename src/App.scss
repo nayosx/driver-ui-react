@@ -1,6 +1,8 @@
-@import './scss/main.scss';
+@use './scss/main.scss';
 
 body {
     font-size: 1rem;
     font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    background-color: #fafafa;
+    color: #090C16;
 }

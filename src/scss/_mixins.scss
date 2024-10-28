@@ -1,0 +1,11 @@
+@mixin icon-sizes($start: 8, $end: 128, $step: 8) {
+    @for $size from $start through $end {
+        @if $size % $step ==0 {
+            .u-icon-x#{$size} {
+                font-size: #{$size}px;
+            }
+        }
+    }
+}
+
+@include icon-sizes();

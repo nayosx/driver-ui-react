@@ -5,6 +5,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import loginSchema from './Login.validate';
 import { useStore } from '../../hooks/Session-Storage.hook';
 import { useNavigate } from 'react-router-dom';
+import { FaUser, FaKey } from 'react-icons/fa';
+
 
 const Login = () => {
     const navigate = useNavigate();
@@ -26,8 +28,8 @@ const Login = () => {
     return (
         <div className='container-login'>
             <div className='container-form'>
-                <h1 className='text-center'>Bienvenido</h1>
-                <div className='text-center'>
+                <h1 className='u-text-center'>Bienvenido</h1>
+                <div className='u-text-center'>
                     <img src={logo} alt="DrClin Logo" className='logo' />
                 </div>
 
@@ -42,10 +44,12 @@ const Login = () => {
                     {({isSubmitting, isValid, dirty}) => (
                         <Form className='form'>
                             <div>
+                                <FaUser className="u-icon-x16" /> <label htmlFor="username">Usuario</label>
                                 <Field className="form-control" type="text" name="username" placeholder="Username" />
                                 <ErrorMessage className="form-control error-text" name="username" component="div" />
                             </div>
                             <div>
+                                <FaKey className="u-icon-x16" /> <label htmlFor="password">Contraseña</label>
                                 <Field className="form-control" type="password" name="password" placeholder="Password" />
                                 <ErrorMessage className="form-control error-text" name="password" component="div" />
                             </div>

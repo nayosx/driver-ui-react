@@ -1,0 +1,34 @@
+$colors: (
+  'white': #fafafa,
+  'black': #090C16,
+  'grey-black': #282a30,
+  'yellow': #FADD36,
+  'green-v1': #2BCC74,
+  'green': #43a047,
+  'red': #FF5959,
+  'blue': #0288D1,
+  'blue-cyan': #75cfff,
+  'grey-v1': #F1F1F1
+);
+
+@each $name, $color in $colors {
+  .u-text-#{$name} {
+    color: $color;
+  }
+}
+
+@each $name, $color in $colors {
+  .u-bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+@each $name, $color in $colors {
+  .u-text-#{$name}-hover:hover {
+    color: $color;
+  }
+
+  .u-bg-#{$name}-hover:hover {
+    background-color: $color;
+  }
+}
