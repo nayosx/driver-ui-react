@@ -1,9 +1,13 @@
 @use './reset';
 @use './mixins';
 @use './grid-system';
-@use './form';
 @use './utils';
 @use './colors';
 @use './paragraphs';
+@use './form';
+@use './buttons';
+@use './displayers';
+@use './cards';
+
 
 @use './componets/components';

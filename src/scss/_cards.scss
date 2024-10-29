@@ -1,0 +1,26 @@
+.u-card {
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    &__title {
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #F1F1F1;
+    }
+
+    &__content {
+        margin-bottom: 0.5rem;
+    }
+
+    &--shadow {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    &--shadow-sm {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    
+    &--shadow-lg {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }    
+}
