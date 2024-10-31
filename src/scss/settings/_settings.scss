@@ -1,0 +1,68 @@
+$colors: (
+  'white': #fafafa,
+  'black': #090C16,
+  'grey-black': #282a30,
+  'yellow': #FADD36,
+  'green-v1': #2BCC74,
+  'green': #43a047,
+  'red': #FF5959,
+  'blue': #0288D1,
+  'blue-v2': #007bff,
+  'blue-cyan': #75cfff,
+  'grey-v1': #F1F1F1,
+  'grey-v2': #6c757d
+);
+
+$base-font-size: 16px;
+
+$font-weights: (
+  'regular': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700
+);
+
+$font-sizes: (
+  'xs': 12px,
+  'sm': 14px,
+  'base': 16px,
+  'lg': 18px,
+  'xl': 20px,
+  '2xl': 24px,
+  '3xl': 30px,
+  '4xl': 36px,
+  '5xl': 48px,
+  '6xl': 60px
+);
+
+$line-heights: (
+  'tight': 1.25,
+  'normal': 1.5,
+  'relaxed': 1.75,
+  'loose': 2
+);
+
+$grid-columns: 12;
+$grid-gap: 1rem;
+$container-max-width: 1200px;
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$circle-sizes: (
+  'xs': 24px,
+  'sm': 32px,
+  'md': 48px,
+  'lg': 64px,
+  'xl': 96px,
+  'xxl': 128px
+);
+
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$hover-color: #2980b9;
+$selected-color: #1abc9c;

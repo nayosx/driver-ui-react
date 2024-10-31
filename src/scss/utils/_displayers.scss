@@ -1,0 +1,98 @@
+// Flexbox utility classes
+.u-d-flex {
+  display: flex;
+
+  &-column {
+    flex-direction: column;
+  }
+
+  &-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &-column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  &-justify {
+    &-start {
+      justify-content: flex-start;
+    }
+
+    &-end {
+      justify-content: flex-end;
+    }
+
+    &-center {
+      justify-content: center;
+    }
+
+    &-between {
+      justify-content: space-between;
+    }
+
+    &-around {
+      justify-content: space-around;
+    }
+  }
+
+  &-align {
+    &-start {
+      align-items: flex-start;
+    }
+
+    &-end {
+      align-items: flex-end;
+    }
+
+    &-center {
+      align-items: center;
+    }
+
+    &-stretch {
+      align-items: stretch;
+    }
+
+    &-baseline {
+      align-items: baseline;
+    }
+  }
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
+
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &-gap {
+    &-1 {
+      gap: 0.25rem;
+    }
+
+    &-2 {
+      gap: 0.5rem;
+    }
+
+    &-3 {
+      gap: 1rem;
+    }
+
+    &-4 {
+      gap: 1.5rem;
+    }
+
+    &-5 {
+      gap: 3rem;
+    }
+  }
+}
+
+.u-d-flex-spacer {
+  flex-grow: 1;
+}
+
+.u-w-100 {
+  width: 100%;
+}

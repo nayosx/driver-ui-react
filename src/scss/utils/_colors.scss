@@ -1,0 +1,66 @@
+@use '../settings/settings' as settings;
+
+@each $name, $color in settings.$colors {
+  .u-text-#{$name} {
+    color: $color;
+  }
+}
+
+@each $name, $color in settings.$colors {
+  .u-bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+@each $name, $color in settings.$colors {
+  .u-text-#{$name}-hover:hover {
+    color: $color;
+  }
+
+  .u-bg-#{$name}-hover:hover {
+    background-color: $color;
+  }
+}
+
+
+@each $name, $color in settings.$colors {
+  .u-border-#{$name} {
+    border: 1px solid $color;
+  }
+
+  .u-border-top-#{$name} {
+    border-top: 1px solid $color;
+  }
+
+  .u-border-right-#{$name} {
+    border-right: 1px solid $color;
+  }
+
+  .u-border-bottom-#{$name} {
+    border-bottom: 1px solid $color;
+  }
+
+  .u-border-left-#{$name} {
+    border-left: 1px solid $color;
+  }
+
+  .u-border-#{$name}-hover:hover {
+    border: 1px solid $color;
+  }
+
+  .u-border-top-#{$name}-hover:hover {
+    border-top: 1px solid $color;
+  }
+
+  .u-border-right-#{$name}-hover:hover {
+    border-right: 1px solid $color;
+  }
+
+  .u-border-bottom-#{$name}-hover:hover {
+    border-bottom: 1px solid $color;
+  }
+
+  .u-border-left-#{$name}-hover:hover {
+    border-left: 1px solid $color;
+  }
+}

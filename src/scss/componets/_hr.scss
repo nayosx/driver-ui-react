@@ -1,0 +1,20 @@
+@use '../settings/settings' as settings;
+@use '../funcs' as funcs;
+
+hr {
+    border: none;
+    border-top: 1px solid funcs.get-color('blue-v2');
+    margin: 1rem 0;
+    opacity: 0.8;
+}
+hr.primary {
+    border-top-color: funcs.get-color('blue-v2');
+}
+
+hr.grey-v1 {
+    border-top-color: funcs.get-color('grey-v1');
+}
+
+hr.grey-v2 {
+    border-top-color: funcs.get-color('grey-v2');
+}

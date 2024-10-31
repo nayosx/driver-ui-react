@@ -1,3 +1,5 @@
+@use '../settings/settings' as settings;
+
 @mixin circle-shadow($color: rgba(0, 0, 0, 0.1)) {
     box-shadow: 0 4px 6px $color;
 }
@@ -10,16 +12,7 @@
     overflow: hidden;
 }
 
-$circle-sizes: (
-    'xs': 24px,
-    'sm': 32px,
-    'md': 48px,
-    'lg': 64px,
-    'xl': 96px,
-    'xxl': 128px
-);
-
-@each $name, $size in $circle-sizes {
+@each $name, $size in settings.$circle-sizes {
     .u-circle-#{$name} {
         @include circle($size);
     }

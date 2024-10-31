@@ -1,0 +1,32 @@
+@use '../settings/settings' as settings;
+
+@function rem($pixels, $context: settings.$base-font-size) {
+  @return ($pixels / $context) * 1rem;
+}
+
+@each $weight-name, $weight-value in settings.$font-weights {
+  .u-font-#{$weight-name} {
+    font-weight: $weight-value;
+  }
+}
+
+@each $size-name, $size-value in settings.$font-sizes {
+  .u-text-#{$size-name} {
+    font-size: rem($size-value);
+  }
+}
+
+@each $weight-name, $weight-value in settings.$font-weights {
+  @each $size-name, $size-value in settings.$font-sizes {
+    .u-text-#{$size-name}-#{$weight-name} {
+      font-size: rem($size-value);
+      font-weight: $weight-value;
+    }
+  }
+}
+
+@each $height-name, $height-value in settings.$line-heights {
+  .u-leading-#{$height-name} {
+    line-height: $height-value;
+  }
+}

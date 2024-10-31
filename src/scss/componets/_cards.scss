@@ -1,3 +1,4 @@
+@use '../settings/settings' as s;
 .u-card {
     border-radius: 0.5rem;
     padding: 1rem;
@@ -22,5 +23,17 @@
     
     &--shadow-lg {
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    }    
+    }
+
+    &--hover {
+        &:hover {
+            background-color: s.$hover-color;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    &--selected {
+        background-color: s.$selected-color;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
 }

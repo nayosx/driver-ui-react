@@ -1,12 +1,36 @@
 import { FaUser } from 'react-icons/fa';
 import { Logout } from '../auth/Logout';
+import {Car} from '../../components/car/Car';
 const Home = () => {
+
+    const cars = [
+        {
+            image: 'corolla.jpg',
+            model: 'Toyota Corolla',
+            carplate: 'ABC-1234',
+            isSelected: true
+        },
+        {
+            image: 'kia_picanto.jpg',
+            model: 'Kia Picanto',
+            carplate: 'XYZ-5678',
+            isSelected: false
+        }
+    ];
+
+    const handleClick = (item) => {
+        console.log('click', item);
+    };
+
     return (
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <h3 className="u-text-center">Bienvenido</h3>
-                    <Logout />
+                    <div className='u-d-flex u-d-flex-align-center u-w-100'>
+                        <h3 className="u-text-center">Bienvenido</h3>
+                        <div className="u-d-flex-spacer"></div>
+                        <Logout />
+                    </div>
                 </div>
             </div>
             <div className="row">
@@ -19,18 +43,26 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className='u-text-center'>
+                                <hr className='grey-v1' />
                                 <h4>Nombre del conductor</h4>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-12 col-md-9 col-lg-9">
-                    <div className='u-d-flex u-d-flex-column u-d-flex-gap-3 u-card u-card--shadow u-bg-white '>
+                    <div className='u-d-flex u-d-flex-column u-d-flex-gap-3 u-card u-card--shadow u-bg-white'>
                         <div className='u-card__title'>
-                            Auto a usar
+                            Gestión de vehiculos
                         </div>
                         <div className='u-card__content'>
-                            Datos del auto a usar y elementos visuales
+                            <p>Lista de vehiculos</p>
+                            <div className='u-d-flex u-d-flex-wrap u-d-flex-gap-3'>
+                                {
+                                    cars.map((car, index) => {
+                                        return <Car key={index} car={car} onClick={ ()=> handleClick(car)} />
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

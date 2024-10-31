@@ -1,0 +1,5 @@
+@use './settings/settings' as settings;
+
+@function get-color($color-name) {
+    @return map-get(settings.$colors, $color-name);
+}
