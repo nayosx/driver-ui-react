@@ -22,11 +22,14 @@ const Home = () => {
     const callbackCar = (item) => {
         console.log('click', item);
 
+
+       
+
         const updatedCars = cars.map(car => {
             if (car.carplate === item.carplate) {
-                return { ...car, isSelected: !car.isSelected };
+                return { ...car, isSelected: true };
             }
-            return car;
+            return { ...car, isSelected: false};
         });
         setCars(updatedCars);
     };
