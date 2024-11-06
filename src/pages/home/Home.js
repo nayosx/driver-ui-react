@@ -1,9 +1,10 @@
+import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 import { Logout } from '../auth/Logout';
 import {Car} from '../../components/car/Car';
 const Home = () => {
 
-    const cars = [
+    const [cars, setCars] = useState([
         {
             image: 'corolla.jpg',
             model: 'Toyota Corolla',
@@ -16,11 +17,24 @@ const Home = () => {
             carplate: 'XYZ-5678',
             isSelected: false
         }
-    ];
+    ]);
 
-    const handleClick = (item) => {
+    const callbackCar = (item) => {
         console.log('click', item);
+
+        const updatedCars = cars.map(car => {
+            if (car.carplate === item.carplate) {
+                return { ...car, isSelected: !car.isSelected };
+            }
+            return car;
+        });
+        setCars(updatedCars);
     };
+
+
+    const handleAddCar = () => {
+        console.log('add car');
+    }
 
     return (
         <div className="container">
@@ -52,14 +66,23 @@ const Home = () => {
                 <div className="col-12 col-md-9 col-lg-9">
                     <div className='u-d-flex u-d-flex-column u-d-flex-gap-3 u-card u-card--shadow u-bg-white'>
                         <div className='u-card__title'>
-                            Gestión de vehiculos
+                            <div className="u-d-flex u-d-flex-align-center u-w-100">
+                                <span className="u-font-medium">Gestión de vehiculos</span>
+                                <div className="u-d-flex-spacer"></div>
+                                <button 
+                                    className="u-btn u-btn-primary"
+                                    onClick={handleAddCar}
+                                >
+                                    Agregar vehiculo
+                                </button>
+                            </div>
                         </div>
                         <div className='u-card__content'>
                             <p>Lista de vehiculos</p>
                             <div className='u-d-flex u-d-flex-wrap u-d-flex-gap-3'>
                                 {
-                                    cars.map((car, index) => {
-                                        return <Car key={index} car={car} onClick={ ()=> handleClick(car)} />
+                                    cars.map((car) => {
+                                        return <Car key={car.carplate} car={car} callback={ ()=> callbackCar(car)} />
                                     })
                                 }
                             </div>
