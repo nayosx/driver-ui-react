@@ -3,6 +3,7 @@
 .u-card {
     border-radius: 0.5rem;
     padding: 1rem;
+    position: relative;
 
     &__title {
         margin-bottom: 0.5rem;
@@ -36,5 +37,9 @@
     &--selected {
         background: f.get-color('hover-blue');
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &--disabled {
+        background: f.get-color('grey-v1');
     }
 }

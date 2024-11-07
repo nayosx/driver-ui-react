@@ -1,3 +1,32 @@
+@use '../../scss/funcs' as f;
+
 .u-card-car {
-  width: 10rem;
+  width: 12rem;
+  box-sizing: border-box;
+  display: block;
+  border-top: 1px solid transparent;
+
+  .info-driver {
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: f.get-color('grey-v1');
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+  }
+
+  @include  f.responsive('sm') {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid f.get-color('grey-v1');
+  }
 }

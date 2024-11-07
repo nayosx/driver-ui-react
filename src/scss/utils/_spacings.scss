@@ -1,0 +1,34 @@
+@use '../settings/settings' as *;
+
+@each $key, $value in $spacing-scale {
+  .u-pl-#{$key} {
+    padding-left: $value;
+  }
+  .u-pr-#{$key} {
+    padding-right: $value;
+  }
+  .u-pt-#{$key} {
+    padding-top: $value;
+  }
+  .u-pb-#{$key} {
+    padding-bottom: $value;
+  }
+  .u-p-all-#{$key} {
+    padding: $value;
+  }
+  .u-ml-#{$key} {
+    margin-left: $value;
+  }
+  .u-mr-#{$key} {
+    margin-right: $value;
+  }
+  .u-mt-#{$key} {
+    margin-top: $value;
+  }
+  .u-mb-#{$key} {
+    margin-bottom: $value;
+  }
+  .u-m-all-#{$key} {
+    margin: $value;
+  }
+}

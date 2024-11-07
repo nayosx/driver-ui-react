@@ -15,14 +15,32 @@ const Home = () => {
             model: 'Kia Picanto',
             carplate: 'XYZ-5678',
             isSelected: true,
-            isFavorite: true
+            isFavorite: true,
+            isAvailable: true,
         },
         {
             image: 'corolla.jpg',
             model: 'Toyota Corolla',
             carplate: 'ABC-1234',
             isSelected: false,
-            isFavorite: false
+            isFavorite: false,
+            isAvailable: false,
+        },
+        {
+            image: 'corolla.jpg',
+            model: 'Toyota Celica',
+            carplate: 'DFE-1234',
+            isSelected: false,
+            isFavorite: false,
+            isAvailable: true,
+        },
+        {
+            image: 'corolla.jpg',
+            model: 'Datsun z270',
+            carplate: 'IJK-1234',
+            isSelected: false,
+            isFavorite: false,
+            isAvailable: true,
         },
 
     ]);
@@ -41,7 +59,6 @@ const Home = () => {
 
 
     const handleAddCar = () => {
-        console.log('add car');
         setIsModalOpen(true);
     }
 
@@ -54,7 +71,7 @@ const Home = () => {
             <div className="row">
                 <div className="col-12">
                     <div className='u-d-flex u-d-flex-align-center u-w-100'>
-                        <h3 className="u-text-center">Bienvenido</h3>
+                        <h3 className="u-text-center u-text-grey-v2">Bienvenido</h3>
                         <div className="u-d-flex-spacer"></div>
                         <Logout />
                     </div>
@@ -95,11 +112,13 @@ const Home = () => {
                             <div className='u-d-flex car-container u-d-flex-wrap u-d-flex-gap-3'>
                                 {
                                     cars.map((car) => {
-                                        return <Car
-                                                    key={car.carplate}
-                                                    car={car}
-                                                    callback={ ()=> callbackCar(car)}
-                                                />
+                                        return (
+                                            <Car
+                                                key={car.carplate}
+                                                car={car}
+                                                callback={ ()=> callbackCar(car)}
+                                            />
+                                        )
                                     })
                                 }
                             </div>

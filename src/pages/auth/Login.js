@@ -29,7 +29,7 @@ const Login = () => {
         <div className='container-login'>
             <div className='container-form'>
 
-                <div className='u-d-flex u-d-flex-column u-d-flex-gap-3 u-card u-card--shadow u-bg-white '>
+                <div className='u-d-flex u-d-flex-column u-d-flex-gap-3 u-card u-card--shadow card-login '>
                     <div className='u-card__content'>
                         <h1 className='u-text-center'>Bienvenido</h1>
                         <div className='u-text-center'>
