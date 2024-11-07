@@ -1,0 +1,8 @@
+@use '../../scss/funcs' as fun;
+.car-container {
+  justify-content: flex-start;
+
+  @include  fun.responsive(('sm')) {
+    justify-content: center;
+  }
+}

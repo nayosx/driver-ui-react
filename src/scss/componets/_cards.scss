@@ -1,4 +1,5 @@
 @use '../settings/settings' as s;
+@use '../funcs' as f;
 .u-card {
     border-radius: 0.5rem;
     padding: 1rem;
@@ -33,7 +34,7 @@
     }
 
     &--selected {
-        background-color: s.$selected-color;
+        background: f.get-color('hover-blue');
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
     }
 }

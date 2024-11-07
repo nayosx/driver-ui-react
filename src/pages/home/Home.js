@@ -2,28 +2,33 @@ import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 import { Logout } from '../auth/Logout';
 import {Car} from '../../components/car/Car';
+import './Home.scss';
+import Modal from "../../components/modal/Modal";
+
 const Home = () => {
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const [cars, setCars] = useState([
-        {
-            image: 'corolla.jpg',
-            model: 'Toyota Corolla',
-            carplate: 'ABC-1234',
-            isSelected: true
-        },
         {
             image: 'kia_picanto.jpg',
             model: 'Kia Picanto',
             carplate: 'XYZ-5678',
-            isSelected: false
-        }
+            isSelected: true,
+            isFavorite: true
+        },
+        {
+            image: 'corolla.jpg',
+            model: 'Toyota Corolla',
+            carplate: 'ABC-1234',
+            isSelected: false,
+            isFavorite: false
+        },
+
     ]);
 
     const callbackCar = (item) => {
         console.log('click', item);
-
-
-       
 
         const updatedCars = cars.map(car => {
             if (car.carplate === item.carplate) {
@@ -37,7 +42,12 @@ const Home = () => {
 
     const handleAddCar = () => {
         console.log('add car');
+        setIsModalOpen(true);
     }
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <div className="container">
@@ -76,16 +86,20 @@ const Home = () => {
                                     className="u-btn u-btn-primary"
                                     onClick={handleAddCar}
                                 >
-                                    Agregar vehiculo
+                                    Usar vehiculo
                                 </button>
                             </div>
                         </div>
                         <div className='u-card__content'>
                             <p>Lista de vehiculos</p>
-                            <div className='u-d-flex u-d-flex-wrap u-d-flex-gap-3'>
+                            <div className='u-d-flex car-container u-d-flex-wrap u-d-flex-gap-3'>
                                 {
                                     cars.map((car) => {
-                                        return <Car key={car.carplate} car={car} callback={ ()=> callbackCar(car)} />
+                                        return <Car
+                                                    key={car.carplate}
+                                                    car={car}
+                                                    callback={ ()=> callbackCar(car)}
+                                                />
                                     })
                                 }
                             </div>
@@ -93,6 +107,16 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <Modal
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+            >
+
+                <h2>Modal</h2>
+                <p>Contenido del modal</p>
+
+            </Modal>
         </div>
     );
 };

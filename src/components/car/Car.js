@@ -1,5 +1,7 @@
 import { FaCarAlt } from "react-icons/fa";
 import classNames from 'classnames';
+import './Car.scss';
+import TextLimiter from "../text-limiter/TextLimiter";
 
 
 export const Car = ({ car, callback }) => {
@@ -11,7 +13,7 @@ export const Car = ({ car, callback }) => {
 
     return (
         <div
-            className={classNames('u-card', 'u-border-right-grey-v1 u-card--hover', {
+            className={classNames('u-card u-card-car u-border-right-grey-v1 u-card--hover', {
                 'u-card--selected': car.isSelected,
             })}
             onClick={handleClick}
@@ -19,7 +21,9 @@ export const Car = ({ car, callback }) => {
             <div className="u-text-center">
                 <FaCarAlt className='u-icon-x128' />
             </div>
-            <h2>{car.model}</h2>
+            <h2>
+                <TextLimiter text={car.model} limit={11} />
+            </h2>
             <p>{car.carplate}</p>
         </div>
     );

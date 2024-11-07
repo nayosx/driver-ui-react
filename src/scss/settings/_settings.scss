@@ -10,7 +10,8 @@ $colors: (
   'blue-v2': #007bff,
   'blue-cyan': #75cfff,
   'grey-v1': #F1F1F1,
-  'grey-v2': #6c757d
+  'grey-v2': #6c757d,
+        'hover-blue': #deecf8
 );
 
 $base-font-size: 16px;
@@ -62,7 +63,7 @@ $circle-sizes: (
   'xxl': 128px
 );
 
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
-$hover-color: #2980b9;
-$selected-color: #1abc9c;
+$primary-color: #b7e2fa;
+$secondary-color: #b8fdd6;
+$hover-color: #deecf8;
+$selected-color: #a4ffd1;

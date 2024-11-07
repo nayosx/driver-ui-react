@@ -3,3 +3,15 @@
 @function get-color($color-name) {
     @return map-get(settings.$colors, $color-name);
 }
+
+@mixin responsive($names: ()) {
+    @each $name in $names {
+        @if map-has-key(settings.$breakpoints, $name) {
+            @media (max-width: #{map-get(settings.$breakpoints, $name)}) {
+                @content;
+            }
+        } @else {
+            @warn "Unfortunately, no value could be retrieved for `#{$name}`.";
+        }
+    }
+}
