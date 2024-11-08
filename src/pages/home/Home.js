@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
+import { FaTableCellsLarge } from "react-icons/fa6";
+import { FaTableList } from "react-icons/fa6";
 import { Logout } from '../auth/Logout';
-import {Car} from '../../components/car/Car';
+import {Car} from './components/car/Car';
 import './Home.scss';
 import Modal from "../../components/modal/Modal";
+import useViewModeStore from '../../store/viewModeStore';
+import classNames from 'classnames';
+
 
 const Home = () => {
-
+    const { isGridView, toggleView } = useViewModeStore();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const [cars, setCars] = useState([
@@ -83,12 +88,15 @@ const Home = () => {
                         <div className='u-card__content'>
                             <div className='u-text-center'>
                                 <div className='u-circle-xxl u-circle-xxl-shadow u-bg-blue-cyan u-text-black'>
-                                    <FaUser className="u-icon-x128" />
+                                    <FaUser className="u-icon-x128"/>
                                 </div>
                             </div>
                             <div className='u-text-center'>
-                                <hr className='grey-v1' />
+                                <hr className='grey-v1'/>
                                 <h4>Nombre del conductor</h4>
+                            </div>
+                            <div className='u-text-center'>
+                                <button type={'button'} className='u-btn u-btn-primary' onClick={handleAddCar} >Iniciar viaje</button>
                             </div>
                         </div>
                     </div>
@@ -97,26 +105,34 @@ const Home = () => {
                     <div className='u-d-flex u-d-flex-column u-d-flex-gap-3 u-card u-card--shadow u-bg-white'>
                         <div className='u-card__title'>
                             <div className="u-d-flex u-d-flex-align-center u-w-100">
-                                <span className="u-font-medium">Gestión de vehiculos</span>
+                                <span className="u-font-medium">Vehiculos</span>
                                 <div className="u-d-flex-spacer"></div>
-                                <button 
-                                    className="u-btn u-btn-primary"
-                                    onClick={handleAddCar}
+
+                                <button
+                                    type={'button'}
+                                    className="u-btn u-btn-ghost-borderless"
+                                    onClick={toggleView}
                                 >
-                                    Usar vehiculo
+                                    {isGridView ? <FaTableCellsLarge className='u-icon-x24'/> :
+                                        <FaTableList className='u-icon-x24'/>}
                                 </button>
                             </div>
                         </div>
                         <div className='u-card__content'>
-                            <p>Lista de vehiculos</p>
-                            <div className='u-d-flex car-container u-d-flex-wrap u-d-flex-gap-3'>
+                            <div
+                                className={ classNames('u-d-flex car-container u-d-flex-wrap u-d-flex-gap-3', {
+                                    'u-d-flex-column': !isGridView,
+                                })}
+                            >
                                 {
-                                    cars.map((car) => {
+                                    cars.map((car, index) => {
+                                        const isLast = index === cars.length - 1;
                                         return (
                                             <Car
                                                 key={car.carplate}
                                                 car={car}
-                                                callback={ ()=> callbackCar(car)}
+                                                isLast={isLast}
+                                                callback={() => callbackCar(car)}
                                             />
                                         )
                                     })

@@ -1,4 +1,5 @@
-// Flexbox utility classes
+@use '../settings/settings' as s;
+
 .u-d-flex {
   display: flex;
 
@@ -95,4 +96,68 @@
 
 .u-w-100 {
   width: 100%;
+}
+
+
+.u-d-none-mobile {
+  display: none;
+}
+
+.u-d-block-mobile {
+  display: block;
+}
+
+.u-d-flex-mobile {
+  display: flex;
+}
+
+.u-d-grid-mobile {
+  display: grid;
+}
+
+.u-d-none-desktop {
+  display: none;
+}
+
+.u-d-block-desktop {
+  display: none;
+}
+
+.u-d-flex-desktop {
+  display: none;
+}
+
+.u-d-grid-desktop {
+  display: none;
+}
+
+@each $name, $size in s.$breakpoints {
+  @media (min-width: $size) {
+    @if $name == 'md' {
+      .u-d-none-desktop {
+        display: none;
+      }
+      .u-d-block-desktop {
+        display: block;
+      }
+      .u-d-flex-desktop {
+        display: flex;
+      }
+      .u-d-grid-desktop {
+        display: grid;
+      }
+      .u-d-none-mobile {
+        display: block;
+      }
+      .u-d-block-mobile {
+        display: none;
+      }
+      .u-d-flex-mobile {
+        display: none;
+      }
+      .u-d-grid-mobile {
+        display: none;
+      }
+    }
+  }
 }
